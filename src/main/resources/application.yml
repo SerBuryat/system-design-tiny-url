@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: tiny-url
+  main:
+    banner-mode: off
+server:
+  port: 8080
+#  Set ip ('ipconfig' in cmd) address for using in local network
+#  address:
+logging:
+  level:
+    com.systemdesign.tinyurl: debug
