@@ -3,10 +3,21 @@ spring:
     name: tiny-url
   main:
     banner-mode: off
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_tiny_url
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
 server:
   port: 8080
-#  Set ip ('ipconfig' in cmd) address for using in local network
-#  address:
+api:
+  host: 192.168.31.214
+
 logging:
   level:
     com.systemdesign.tinyurl: debug

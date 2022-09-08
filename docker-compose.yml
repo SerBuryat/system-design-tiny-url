@@ -1,0 +1,25 @@
+version: '3'
+services:
+
+  postgres:
+    image: postgres:12.4
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db_tiny_url
+
+  tiny-url-api:
+    depends_on:
+      - postgres
+    image: tiny-url-image:latest
+    ports:
+      - '8080:8080'
+    environment:
+      - DB_URL=jdbc:postgresql://postgres:5432/db_tiny_url
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_DDL_AUTO=create
+#     container external ip (cmd: 'ipconfig')
+      - API_HOST=192.168.31.214
